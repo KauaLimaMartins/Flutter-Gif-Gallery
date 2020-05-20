@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 import '../screens/gif.screen.dart';
 
@@ -28,12 +30,17 @@ class GifTable extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         if (this.search == null || index < snapshot.data['data'].length) {
           return GestureDetector(
-            child: Image.network(
-              this.snapshot.data['data'][index]['images']['fixed_height']
+            child: FadeInImage.memoryNetwork(
+              placeholder: kTransparentImage,
+              image: this.snapshot.data['data'][index]['images']['fixed_height']
                   ['url'],
               height: 300.0,
               fit: BoxFit.cover,
             ),
+            onLongPress: () {
+              Share.share(this.snapshot.data['data'][index]['images']
+                  ['fixed_height']['url']);
+            },
             onTap: () {
               Navigator.push(
                 context,

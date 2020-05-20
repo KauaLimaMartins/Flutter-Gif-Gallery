@@ -19,10 +19,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<Map> _getGifs() async {
     http.Response response;
 
-    if (this._search == null) {
+    if (this._search == null || this._search.isEmpty) {
       response = await http.get(
           'https://api.giphy.com/v1/gifs/trending?api_key=BpETrXyv7yg2HtbALDiLjzkpMKE8ibJc&limit=20&rating=G');
-    } else if (this._search.isNotEmpty) {
+    } else {
       response = await http.get(
           'https://api.giphy.com/v1/gifs/search?api_key=BpETrXyv7yg2HtbALDiLjzkpMKE8ibJc&q=${this._search}&limit=19&offset=${this._offset}&rating=G&lang=pt');
     }

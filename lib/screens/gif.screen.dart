@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 
 class GifScreen extends StatelessWidget {
   GifScreen(this._gifData);
@@ -15,6 +16,14 @@ class GifScreen extends StatelessWidget {
             color: Colors.white,
           ),
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.share),
+            onPressed: () {
+              Share.share(this._gifData['images']['fixed_height']['url']);
+            },
+          ),
+        ],
         backgroundColor: Colors.black,
         elevation: 0.0,
       ),

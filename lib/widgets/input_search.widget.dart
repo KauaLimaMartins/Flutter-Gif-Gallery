@@ -5,7 +5,7 @@ class InputSearch extends StatelessWidget {
     @required this.submittedFunction,
   });
 
-  Function submittedFunction;
+  final Function submittedFunction;
 
   @override
   Widget build(BuildContext context) {

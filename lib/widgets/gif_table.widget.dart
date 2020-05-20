@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../screens/gif.screen.dart';
+
 class GifTable extends StatelessWidget {
   GifTable(this.context, this.snapshot,
       {@required this.itemCountFunction,
@@ -32,8 +34,17 @@ class GifTable extends StatelessWidget {
               height: 300.0,
               fit: BoxFit.cover,
             ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) =>
+                      GifScreen(this.snapshot.data['data'][index]),
+                ),
+              );
+            },
           );
-        } else {
+        } else if (this.search.isNotEmpty) {
           return Container(
             decoration: BoxDecoration(
               border: Border.all(color: Colors.white),

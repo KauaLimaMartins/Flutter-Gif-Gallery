@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     if (this._search == null) {
       response = await http.get(
           'https://api.giphy.com/v1/gifs/trending?api_key=BpETrXyv7yg2HtbALDiLjzkpMKE8ibJc&limit=20&rating=G');
-    } else {
+    } else if (this._search.isNotEmpty) {
       response = await http.get(
           'https://api.giphy.com/v1/gifs/search?api_key=BpETrXyv7yg2HtbALDiLjzkpMKE8ibJc&q=${this._search}&limit=19&offset=${this._offset}&rating=G&lang=pt');
     }
@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
 
-    this._getGifs().then((map) => print(map));
+    this._getGifs();
   }
 
   @override

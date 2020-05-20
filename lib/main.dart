@@ -14,8 +14,9 @@ class MyApp extends StatelessWidget {
       title: 'Giphy Api',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        hintColor: Colors.white,
         accentColor: Colors.white,
-        primaryColor: Colors.white,
+        primaryColor: Colors.black,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: HomeScreen(),

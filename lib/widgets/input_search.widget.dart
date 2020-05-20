@@ -31,6 +31,13 @@ class InputSearch extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.0),
+              borderSide: BorderSide(
+                color: Colors.white,
+                width: 2.5,
+              ),
+            ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0),
               borderSide: BorderSide(
